@@ -26,3 +26,8 @@ brew install bufbuild/buf/buf
 brew install --verbose bufbuild/buf/buf
 ```
 
+```shell
+go install github.com/bufbuild/buf/cmd/buf@v1.15.1
+export PATH=$PATH:/Users/blm/go/bin
+```
+
