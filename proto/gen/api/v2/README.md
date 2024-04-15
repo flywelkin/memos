@@ -13,6 +13,12 @@
   
     - [ActivityService](#memos-api-v2-ActivityService)
   
+- [api/v2/ai_service.proto](#api_v2_ai_service-proto)
+    - [AIResponse](#memos-api-v2-AIResponse)
+    - [AiRequest](#memos-api-v2-AiRequest)
+  
+    - [AiService](#memos-api-v2-AiService)
+  
 - [api/v2/common.proto](#api_v2_common-proto)
     - [PageToken](#memos-api-v2-PageToken)
   
@@ -296,6 +302,62 @@
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | GetActivity | [GetActivityRequest](#memos-api-v2-GetActivityRequest) | [GetActivityResponse](#memos-api-v2-GetActivityResponse) | GetActivity returns the activity with the given id. |
+
+ 
+
+
+
+<a name="api_v2_ai_service-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## api/v2/ai_service.proto
+
+
+
+<a name="memos-api-v2-AIResponse"></a>
+
+### AIResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| content | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="memos-api-v2-AiRequest"></a>
+
+### AiRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| content | [string](#string) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="memos-api-v2-AiService"></a>
+
+### AiService
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| AiChat | [AiRequest](#memos-api-v2-AiRequest) | [AIResponse](#memos-api-v2-AIResponse) |  |
 
  
 

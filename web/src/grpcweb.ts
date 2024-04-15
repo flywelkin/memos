@@ -8,6 +8,7 @@ import { TagServiceDefinition } from "./types/proto/api/v2/tag_service";
 import { UserServiceDefinition } from "./types/proto/api/v2/user_service";
 import { WebhookServiceDefinition } from "./types/proto/api/v2/webhook_service";
 import { WorkspaceServiceDefinition } from "./types/proto/api/v2/workspace_service";
+import {AiServiceDefinition} from "@/types/proto/api/v2/ai_service";
 
 const channel = createChannel(
   import.meta.env.VITE_API_BASE_URL || window.location.origin,
@@ -35,3 +36,5 @@ export const inboxServiceClient = clientFactory.create(InboxServiceDefinition, c
 export const activityServiceClient = clientFactory.create(ActivityServiceDefinition, channel);
 
 export const webhookServiceClient = clientFactory.create(WebhookServiceDefinition, channel);
+
+export const aiServiceClient = clientFactory.create(AiServiceDefinition, channel);

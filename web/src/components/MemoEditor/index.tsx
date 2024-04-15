@@ -26,6 +26,7 @@ import RelationListView from "./RelationListView";
 import ResourceListView from "./ResourceListView";
 import { handleEditorKeydownWithMarkdownShortcuts, hyperlinkHighlightedText } from "./handlers";
 import { MemoEditorContext } from "./types";
+import AiTools from "@/components/MemoEditor/ActionButton/AiTools";
 
 interface Props {
   className?: string;
@@ -392,6 +393,7 @@ const MemoEditor = (props: Props) => {
               <Icon.Image className="w-5 h-5 mx-auto" />
             </IconButton>
             <AddMemoRelationButton editorRef={editorRef} />
+            <AiTools editorRef={editorRef} />
           </div>
         </div>
         <Divider className="!mt-2" />

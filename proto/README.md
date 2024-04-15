@@ -15,3 +15,14 @@ buf generate
 ```sh
 buf format -w
 ```
+
+
+```sh
+brew install bufbuild/buf/buf
+```
+
+
+```sh
+brew install --verbose bufbuild/buf/buf
+```
+

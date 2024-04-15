@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package memos.api.v2;
+
+import "google/api/annotations.proto";
+import "google/api/client.proto";
+import "google/protobuf/field_mask.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "gen/api/v2";
+
+service AiService {
+  rpc AiChat(AiRequest) returns (AIResponse) {
+    option (google.api.http) = {
+      post: "/api/v2/ai"
+      body: "*"
+    };
+  }
+}
+
+message AiRequest {
+  string content = 1;
+}
+
+message AIResponse {
+  string content = 1;
+}

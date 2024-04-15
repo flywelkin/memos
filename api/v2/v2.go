@@ -30,6 +30,7 @@ type APIV2Service struct {
 	apiv2pb.UnimplementedInboxServiceServer
 	apiv2pb.UnimplementedActivityServiceServer
 	apiv2pb.UnimplementedWebhookServiceServer
+	apiv2pb.UnimplementedAiServiceServer
 
 	Secret  string
 	Profile *profile.Profile
@@ -64,6 +65,7 @@ func NewAPIV2Service(secret string, profile *profile.Profile, store *store.Store
 	apiv2pb.RegisterInboxServiceServer(grpcServer, apiv2Service)
 	apiv2pb.RegisterActivityServiceServer(grpcServer, apiv2Service)
 	apiv2pb.RegisterWebhookServiceServer(grpcServer, apiv2Service)
+	apiv2pb.RegisterAiServiceServer(grpcServer, apiv2Service)
 	reflection.Register(grpcServer)
 
 	return apiv2Service
