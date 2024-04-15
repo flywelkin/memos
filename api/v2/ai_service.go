@@ -2,8 +2,10 @@ package v2
 
 import (
 	"context"
+	"github.com/lithammer/shortuuid/v4"
 	gml "github.com/usememos/memos/plugin/ai"
 	apiv2pb "github.com/usememos/memos/proto/gen/api/v2"
+	"github.com/usememos/memos/store"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -22,8 +24,20 @@ func (s *APIV2Service) AiChat(ctx context.Context, request *apiv2pb.AiRequest) (
 		Content: request.Content,
 	}
 	res, err := gml.Chat(message)
+
+	create := &store.Memo{
+		ResourceName: shortuuid.New(),
+		CreatorID:    user.ID,
+		Content:      res,
+		Visibility:   store.Private,
+	}
+	memo, err := s.Store.CreateMemo(ctx, create)
+	if err != nil {
+		return nil, err
+	}
+
 	response := &apiv2pb.AIResponse{
-		Content: res,
+		Content: memo.Content,
 	}
 	return response, nil
 }
